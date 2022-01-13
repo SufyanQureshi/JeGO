@@ -4,39 +4,21 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
-public class AuthManager : MonoBehaviour
+public class LogINManager : MonoBehaviour
 {
     public InputField emailText;
     public InputField passwordText;
     private string AuthKey = "AIzaSyBD0Ovji8fklDHIw3YciG0IMxYdSKH0SUY";
 
-
-
-    public static int playerScore;
-    public static string playerName;
-    public static string localId;
-
- 
-
-
-    private void Start()
-    {
-      
-       
-    }
 public void SignIn()
     {
       
-        StartCoroutine(Upload(emailText.text, passwordText.text));
+        StartCoroutine(SignIn(emailText.text, passwordText.text));
 
     }
 
 
-
-
-
-
-    IEnumerator Upload(string email, string password)
+    IEnumerator SignIn(string email, string password)
     {
         WWWForm form = new WWWForm();
         form.AddField("key", "AIzaSyBD0Ovji8fklDHIw3YciG0IMxYdSKH0SUY");
@@ -58,8 +40,7 @@ public void SignIn()
                 SceneManager.LoadScene(1);
             }
         }
-    }
-
+    } 
 }
 
 
