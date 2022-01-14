@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.574817, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -509,7 +509,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &142136838
 RectTransform:
   m_ObjectHideFlags: 0
@@ -517,13 +517,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 142136837}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1805324376}
-  m_Father: {fileID: 1472525580}
-  m_RootOrder: 8
+  m_Father: {fileID: 523735771}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -543,7 +543,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0.09019608, g: 0.04705883, b: 0.15294118, a: 0.392}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -899,6 +899,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 142136838}
   - {fileID: 1077388211}
   - {fileID: 1472525580}
   m_Father: {fileID: 0}
@@ -1660,9 +1661,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 920121754}
-        m_TargetAssemblyTypeName: SignUpManager, Assembly-CSharp
-        m_MethodName: OnSubmit
+      - m_Target: {fileID: 920121755}
+        m_TargetAssemblyTypeName: ReferralManager, Assembly-CSharp
+        m_MethodName: GetAllReferrals
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1685,7 +1686,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8352942, g: 0.82745105, b: 0.9960785, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1927,8 +1928,7 @@ MonoBehaviour:
   Password: {fileID: 1140456937}
   SignUpPanel: {fileID: 1472525579}
   LogInPanel: {fileID: 1077388210}
-  PopUP: {fileID: 142136837}
-  RefferalField: {fileID: 607466070}
+  ReferralManager: {fileID: 920121755}
 --- !u!114 &920121755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1941,6 +1941,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7c864fff69424099be41fa4b88b161d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PopUP: {fileID: 142136837}
+  RefferalField: {fileID: 607466070}
+  SignUpPanel: {fileID: 1472525579}
 --- !u!1 &927302253
 GameObject:
   m_ObjectHideFlags: 0
@@ -2338,7 +2341,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1077388211
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2359,7 +2362,7 @@ RectTransform:
   - {fileID: 734270805}
   - {fileID: 900372723}
   m_Father: {fileID: 523735771}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -3079,9 +3082,8 @@ RectTransform:
   - {fileID: 1140456936}
   - {fileID: 1315764191}
   - {fileID: 1300801313}
-  - {fileID: 142136838}
   m_Father: {fileID: 523735771}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -3919,7 +3921,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.0627451, g: 0.0627451, b: 0.18823531, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
