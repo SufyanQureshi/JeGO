@@ -4,28 +4,35 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class ReferralManager : MonoBehaviour
 {
+
+    public GameObject PopUP;
+    public InputField RefferalField;
+    public GameObject SignUpPanel;
+
+    private string refferalKey;
     // Start is called before the first frame update
     void Start()
     {
         GetAllReferrals();
-        DeleteReferral();
     }
 
     public void GetAllReferrals()
     {
-        //StartCoroutine(SendUnfreind("user_22"));
+        StartCoroutine(SendUnfreind());
     }
-    public void DeleteReferral()
+    public void DeleteRefferals()
     {
-        StartCoroutine(DeleteReferralRequest("212121"));
+        StartCoroutine(DeleteReferralRequest(refferalKey));
     }
+    
     IEnumerator DeleteReferralRequest(string code)
     {
         string request = "https://jego-44385-default-rtdb.firebaseio.com/Referral/"+code+".json";
-
+        Debug.Log(code);
 
 
         using (UnityWebRequest webRequest = UnityWebRequest.Delete(request))
@@ -52,7 +59,7 @@ public class ReferralManager : MonoBehaviour
             }
         }
     }
-    IEnumerator SendUnfreind(string status)
+    IEnumerator SendUnfreind()
     {
         string request = "https://jego-44385-default-rtdb.firebaseio.com/Referral.json";
 
@@ -87,6 +94,14 @@ public class ReferralManager : MonoBehaviour
                         Debug.Log("Refferal: " + pair.Key);
                         //Use pair.Key to get the key
                         //Use pair.Value for value
+                        if (RefferalField.text == pair.Key)
+                        {
+                            PopUP.SetActive(false);
+                            SignUpPanel.SetActive(true);
+
+                            refferalKey = pair.Key;
+                            print("refferal:" + refferalKey);
+                        }
                     }
 
                     break;

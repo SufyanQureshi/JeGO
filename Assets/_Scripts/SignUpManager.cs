@@ -11,9 +11,8 @@ public class SignUpManager : MonoBehaviour
 
     public GameObject SignUpPanel;
     public GameObject LogInPanel;
-    public GameObject PopUP;
-    public InputField RefferalField;
 
+    public ReferralManager ReferralManager;
 
 
     private string AuthKey = "AIzaSyBD0Ovji8fklDHIw3YciG0IMxYdSKH0SUY";
@@ -21,17 +20,10 @@ public class SignUpManager : MonoBehaviour
 
     public void SignUP()
     {
-        PopUP.SetActive(true);
-    }
-    public void OnSubmit()
-    {
-        if (RefferalField.text == "1234")
-        {
-            StartCoroutine(PostCreateUserRequest(Email.text, Password.text));
-            PopUP.SetActive(false);
-        }
+       StartCoroutine(PostCreateUserRequest(Email.text, Password.text));
 
     }
+    
 
     IEnumerator PostCreateUserRequest( string email, string password)
     {
@@ -68,6 +60,7 @@ public class SignUpManager : MonoBehaviour
 
                     SignUpPanel.SetActive(false);
                     LogInPanel.SetActive(true);
+                    ReferralManager.DeleteRefferals();
                 }
 
             }
