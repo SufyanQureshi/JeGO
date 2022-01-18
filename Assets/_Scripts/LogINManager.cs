@@ -8,6 +8,9 @@ public class LogINManager : MonoBehaviour
 {
     public InputField emailText;
     public InputField passwordText;
+
+    public GameObject SignUpPanel;
+    public GameObject LogInPanel;
     private string AuthKey = "AIzaSyBD0Ovji8fklDHIw3YciG0IMxYdSKH0SUY";
 
 public void SignIn()
@@ -16,7 +19,11 @@ public void SignIn()
         StartCoroutine(SignIn(emailText.text, passwordText.text));
 
     }
-
+    public void MoveSignUp()
+    {
+        SignUpPanel.SetActive(true);
+        LogInPanel.SetActive(false);
+    }
 
     IEnumerator SignIn(string email, string password)
     {

@@ -12,12 +12,13 @@ public class ReferralManager : MonoBehaviour
     public GameObject PopUP;
     public InputField RefferalField;
     public GameObject SignUpPanel;
-
+    public Text MessageText;
+    public GameObject messageText;
     private string refferalKey;
     // Start is called before the first frame update
     void Start()
     {
-        GetAllReferrals();
+       // GetAllReferrals();
     }
 
     public void GetAllReferrals()
@@ -102,11 +103,21 @@ public class ReferralManager : MonoBehaviour
                             refferalKey = pair.Key;
                             print("refferal:" + refferalKey);
                         }
+                        if (RefferalField.text != pair.Key)
+                        {
+                            MessageText.text = "IN Valid Key!";
+                            messageText.SetActive(true);
+                            StartCoroutine(PopUpDisappear());
+                        }
                     }
 
                     break;
             }
         }
     }
-
+    public IEnumerator PopUpDisappear()
+    {
+        yield return new WaitForSeconds(5);
+        messageText.SetActive(false);
+    }
 }

@@ -23,8 +23,12 @@ public class SignUpManager : MonoBehaviour
        StartCoroutine(PostCreateUserRequest(Email.text, Password.text));
 
     }
-    
 
+    public void MoveSignIn()
+    {
+        SignUpPanel.SetActive(false);
+        LogInPanel.SetActive(true);
+    }
     IEnumerator PostCreateUserRequest( string email, string password)
     {
         WWWForm form = new WWWForm();
