@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class ReferralManager : MonoBehaviour
 {
 
-    public GameObject PopUP;
+    public GameObject RefferalPanel;
     public InputField RefferalField;
     public GameObject SignUpPanel;
     public Text MessageText;
@@ -97,18 +97,21 @@ public class ReferralManager : MonoBehaviour
                         //Use pair.Value for value
                         if (RefferalField.text == pair.Key)
                         {
-                            PopUP.SetActive(false);
+                            RefferalPanel.SetActive(false);
                             SignUpPanel.SetActive(true);
 
                             refferalKey = pair.Key;
                             print("refferal:" + refferalKey);
+
                         }
-                        if (RefferalField.text != pair.Key)
+                        else
+                            
                         {
                             MessageText.text = "IN Valid Key!";
                             messageText.SetActive(true);
                             StartCoroutine(PopUpDisappear());
                         }
+                        
                     }
 
                     break;

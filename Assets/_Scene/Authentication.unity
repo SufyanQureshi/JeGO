@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.574817, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2217,6 +2217,7 @@ MonoBehaviour:
   passwordText: {fileID: 1506277400}
   SignUpPanel: {fileID: 1472525579}
   LogInPanel: {fileID: 1077388210}
+  RefferalPanel: {fileID: 142136837}
 --- !u!4 &920121753
 Transform:
   m_ObjectHideFlags: 0
@@ -2260,7 +2261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7c864fff69424099be41fa4b88b161d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PopUP: {fileID: 142136837}
+  RefferalPanel: {fileID: 142136837}
   RefferalField: {fileID: 607466070}
   SignUpPanel: {fileID: 1472525579}
   MessageText: {fileID: 1431602544}
@@ -3441,7 +3442,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1431602543
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3456,10 +3457,10 @@ RectTransform:
   m_Father: {fileID: 142136838}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.27, y: 0.47832072}
-  m_AnchorMax: {x: 0.731, y: 0.5073586}
-  m_AnchoredPosition: {x: -0.5, y: 0.5}
-  m_SizeDelta: {x: -2.772705, y: 1.5730896}
+  m_AnchorMin: {x: 0.27, y: 0.37067187}
+  m_AnchorMax: {x: 0.7275278, y: 0.40226567}
+  m_AnchoredPosition: {x: 2, y: -0.5}
+  m_SizeDelta: {x: 2.227295, y: -3.4269104}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1431602544
 MonoBehaviour:

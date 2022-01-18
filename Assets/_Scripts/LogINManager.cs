@@ -11,6 +11,7 @@ public class LogINManager : MonoBehaviour
 
     public GameObject SignUpPanel;
     public GameObject LogInPanel;
+    public GameObject RefferalPanel;
     private string AuthKey = "AIzaSyBD0Ovji8fklDHIw3YciG0IMxYdSKH0SUY";
 
 public void SignIn()
@@ -21,7 +22,7 @@ public void SignIn()
     }
     public void MoveSignUp()
     {
-        SignUpPanel.SetActive(true);
+        RefferalPanel.SetActive(true);
         LogInPanel.SetActive(false);
     }
 
