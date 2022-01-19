@@ -13,6 +13,7 @@ public class ReferralManager : MonoBehaviour
     public GameObject RefferalPanel;
     public InputField RefferalField;
     public GameObject SignUpPanel;
+    public GameObject LogInPanel;
     public Text MessageText;
     public GameObject messageText;
     private string refferalKey;
@@ -20,6 +21,12 @@ public class ReferralManager : MonoBehaviour
     void Start()
     {
        // GetAllReferrals();
+    }
+
+    public void MovetoLogIn()
+    {
+        RefferalPanel.SetActive(false);
+        LogInPanel.SetActive(true);
     }
 
     public void GetAllReferrals()
