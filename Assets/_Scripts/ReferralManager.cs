@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class ReferralManager : MonoBehaviour
 {
 
+    public GameObject LoadingPanel;
     public GameObject RefferalPanel;
     public InputField RefferalField;
     public GameObject SignUpPanel;
@@ -23,6 +24,7 @@ public class ReferralManager : MonoBehaviour
 
     public void GetAllReferrals()
     {
+        LoadingPanel.SetActive(true);
         StartCoroutine(SendUnfreind());
     }
     public void DeleteRefferals()
@@ -99,7 +101,7 @@ public class ReferralManager : MonoBehaviour
                         {
                             RefferalPanel.SetActive(false);
                             SignUpPanel.SetActive(true);
-
+                            LoadingPanel.SetActive(false);
                             refferalKey = pair.Key;
                             print("refferal:" + refferalKey);
 
@@ -107,6 +109,7 @@ public class ReferralManager : MonoBehaviour
                         else
                             
                         {
+                            LoadingPanel.SetActive(false);
                             MessageText.text = "IN Valid Key!";
                             messageText.SetActive(true);
                             StartCoroutine(PopUpDisappear());

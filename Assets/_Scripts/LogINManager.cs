@@ -8,15 +8,16 @@ public class LogINManager : MonoBehaviour
 {
     public InputField emailText;
     public InputField passwordText;
-
-    public GameObject SignUpPanel;
+    public GameObject LoadingPanel;
     public GameObject LogInPanel;
     public GameObject RefferalPanel;
+    public Text MessageText;
+    public GameObject messageText;
     private string AuthKey = "AIzaSyBD0Ovji8fklDHIw3YciG0IMxYdSKH0SUY";
 
 public void SignIn()
     {
-      
+        LoadingPanel.SetActive(true);
         StartCoroutine(SignIn(emailText.text, passwordText.text));
 
     }
@@ -28,6 +29,7 @@ public void SignIn()
 
     IEnumerator SignIn(string email, string password)
     {
+        
         WWWForm form = new WWWForm();
         form.AddField("key", "AIzaSyBD0Ovji8fklDHIw3YciG0IMxYdSKH0SUY");
         form.AddField("email", email);
@@ -41,14 +43,24 @@ public void SignIn()
             if (www.result != UnityWebRequest.Result.Success)
             {
                 Debug.Log(www.error);
+                LoadingPanel.SetActive(false);
+                MessageText.text = "IN Valid Email or Password!";
+                messageText.SetActive(true);
+                StartCoroutine(PopUpDisappear());
             }
             else
             {
                 Debug.Log("Form upload complete!");
+                LoadingPanel.SetActive(false);
                 SceneManager.LoadScene(1);
             }
         }
-    } 
+    }
+    public IEnumerator PopUpDisappear()
+    {
+        yield return new WaitForSeconds(5);
+        messageText.SetActive(false);
+    }
 }
 
 

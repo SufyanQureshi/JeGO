@@ -11,15 +11,17 @@ public class SignUpManager : MonoBehaviour
 
     public GameObject SignUpPanel;
     public GameObject LogInPanel;
-
+    public GameObject LoadingPanel;
     public ReferralManager ReferralManager;
-
+    public Text MessageText;
+    public GameObject messageText;
 
     private string AuthKey = "AIzaSyBD0Ovji8fklDHIw3YciG0IMxYdSKH0SUY";
 
 
     public void SignUP()
     {
+        LoadingPanel.SetActive(true);
        StartCoroutine(PostCreateUserRequest(Email.text, Password.text));
 
     }
@@ -42,6 +44,10 @@ public class SignUpManager : MonoBehaviour
             if (www.isNetworkError || www.isHttpError)
             {
                 Debug.Log(www.error);
+                LoadingPanel.SetActive(false);
+                MessageText.text = "NetWork Error!";
+                messageText.SetActive(true);
+                StartCoroutine(PopUpDisappear());
             }
             else
             {
@@ -50,13 +56,19 @@ public class SignUpManager : MonoBehaviour
                 {
                     // ConsoleManager.instance.ShowMessage("Please try again");
                     Debug.Log("Something Went Wrong!");
-
+                    LoadingPanel.SetActive(false);
+                    MessageText.text = "Something Went Wrong!";
+                    messageText.SetActive(true);
+                    StartCoroutine(PopUpDisappear());
                 }
                 else if (www.downloadHandler.text == "Duplicate Email")
                 {
                     //ConsoleManager.instance.ShowMessage("Email Already Registered");
                     Debug.Log("Email Already Registered!");
-
+                    LoadingPanel.SetActive(false);
+                    MessageText.text = "Email Already Registered!";
+                    messageText.SetActive(true);
+                    StartCoroutine(PopUpDisappear());
                 }
                 else
                 {
@@ -64,11 +76,18 @@ public class SignUpManager : MonoBehaviour
 
                     SignUpPanel.SetActive(false);
                     LogInPanel.SetActive(true);
+                    LoadingPanel.SetActive(false);
                     ReferralManager.DeleteRefferals();
+                    
                 }
 
             }
         }
 
+    }
+    public IEnumerator PopUpDisappear()
+    {
+        yield return new WaitForSeconds(5);
+        messageText.SetActive(false);
     }
 }
