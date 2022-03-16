@@ -1,0 +1,8 @@
+Model Information:
+* title:	Koi — Kohaku
+* source:	https://sketchfab.com/3d-models/koi-kohaku-ab05deba898e4444b2d51ff87141ad9b
+* author:	NestaEric (https://sketchfab.com/Nestaeric)
+
+Model License:
+* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
+* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works
